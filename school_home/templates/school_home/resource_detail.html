@@ -1,0 +1,159 @@
+{% extends "school_home/base_resource.html" %}
+{% load static %}
+{% block content-header %}
+<div class="page-header">
+   <h1>Resources
+		<small>
+			<i class="ace-icon fa fa-angle-double-right"></i>
+					Resource Details
+			</small>
+
+			<small>
+			<i class="ace-icon fa fa-angle-double-right"></i>
+					{{ object.description }}
+			</small>
+
+
+			</h1>
+</div><!-- /.page-header -->
+{% endblock content-header %}
+
+				{% block content %}
+
+													<div class="row">
+														<div class="col-xs-6 col-sm-12 col-md-16">
+															<div class="media search-media">
+																<div class="media-left">
+																	<a href="#">
+																		<img class="media-object" src="{% static 'assets/images/gallery/school.png' %}" />
+																	</a>
+																</div>
+
+																<div class="media-body">
+																	<div>
+
+																	<div class="col-xs-12 col-sm-6">
+
+																	<div class="profile-user-info profile-user-info-striped">
+																	
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Resource Type</div>
+
+																		<div class="profile-info-value">
+																			<span>{{ object.resource_type }}</span>
+																		</div>
+																	</div>
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Quantity</div>
+
+																		<div class="profile-info-value">
+																			<span>{{ object.quantity }}</span>
+																		</div>
+																	</div>
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Amount</div>
+
+																		<div class="profile-info-value">
+																			<span>{{ object.amount }}</span>
+																		</div>
+																	</div>
+																	</div>
+																	</div>
+																	<div class="col-xs-12 col-sm-6">
+																	<div class="profile-user-info profile-user-info-striped">
+																	
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Resource Year</div>
+
+																		<div class="profile-info-value">
+																			<span>{{ object.year }}</span>
+																		</div>
+																	</div>
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Source</div>
+
+																		<div class="profile-info-value">
+																			<span>{{ object.source }}</span>
+																		</div>
+																	</div>
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Recorded  by</div>
+
+																		<div class="profile-info-value">
+																			<span>{{ object.user }}</span>
+																		</div>
+																	</div>
+																	</div>
+																	</div>
+																	</div>
+
+																	<div class="search-actions text-center">
+																		<span class="blue bolder bigger-150">{{ object.quantity }}</span>
+
+																		{{ object.resource_type }}
+																		<div class="action-buttons bigger-125">
+																			<a href="#">
+																				<i class="ace-icon fa fa-phone green"></i>
+																			</a>
+
+																			<a href="#">
+																				<i class="ace-icon fa fa-heart red"></i>
+																			</a>
+
+																			<a href="#">
+																				<i class="ace-icon fa fa-star orange2"></i>
+																			</a>
+																		</div>
+																		<a class="search-btn-action btn btn-sm btn-block btn-info" href="{% url 'allocate-resource' %}" title="Allocate new resource">Allocate!</a>
+																	</div>
+																</div>
+															</div>
+														</div>											
+														</div>
+														<div class="page-header">
+													<h1>How {{ object.description }} are allocated  </h1>
+														</div>
+														<div class="row">
+														<div class="col-xs-8">
+														{% for resource in allocated %}
+															<div class="media search-media disabled">
+																<div class="media-left">
+																	<a href="#">
+																		<img class="media-object" src="{% static 'assets/images/avatars/school.png' %}" />
+																	</a>
+																</div>
+
+																<div class="media-body">
+																	<div>
+																		<h4 class="media-heading">
+																			<a href="{% url 'school-details' resource.school.id %}" class="blue" title="View school details">{{ resource.school }}</a>
+																		</h4>
+																	</div>
+																	<p>{{ resource.quantity }} {{ resource.resource }} of {{ resource.amount }} shillings has been allocated to {{ resource.school }} on {{ resource.date_allocated }} for the financial Year {{ resource.year }} valid until {{ resource.date_valid }}</p>
+
+																	<div class="search-actions text-center">
+																		<span class="grey bolder bigger-125">{{ resource.quantity }}</span>
+
+																		{{ object.resource_type }}
+																		<div class="action-buttons bigger-125">
+																			<a href="#">
+																				<i class="ace-icon fa fa-phone green"></i>
+																			</a>
+
+																			<a href="#">
+																				<i class="ace-icon fa fa-heart red"></i>
+																			</a>
+
+																			<a href="#">
+																				<i class="ace-icon fa fa-star orange2"></i>
+																			</a>
+																		</div>
+																		<a class="search-btn-action btn btn-sm btn-block btn-grey disabled">Allocated!</a>
+																	</div>
+																</div>
+															</div>
+															{% endfor %}
+														</div>
+													</div>
+
+{% endblock content %}

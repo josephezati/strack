@@ -1,0 +1,85 @@
+{% extends "school_home/base_school.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+								<div class="row">
+									<div class="col-xs-12">
+									<div class="clearfix">
+									<div class="pull-left">
+   									<h4>Schools
+										<small>
+											<i class="ace-icon fa fa-angle-double-right"></i>
+											Registered Schools
+									</small>
+									</h4>
+									</div>
+									<div class="pull-right tableTools-container"></div>
+										</div>
+										<div class="table-header">
+											Results for "Latest Registered Schools"
+										</div>
+
+										<!-- div.table-responsive -->
+
+										<!-- div.dataTables_borderWrap -->
+										<div>
+											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+													
+													<th class="center">
+															<label class="pos-rel">
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+														</th>
+													
+														<th>School Name</th>
+														<th>School Motto</th>
+														<th class="hidden-480">Reg. No</th>
+
+														<th>
+															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+															Established On
+														</th>
+														<th>
+														<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+														Registered On
+														</th>
+														<th>
+														<i class="ace-icon fa fa-map-marker light-orange bigger-110"></i>
+														Location
+														</th>
+													</tr>
+												</thead>
+
+												<tbody>
+														
+
+														{% for school in schools %}    
+														<tr>
+														
+																		<td class="center">
+																			<label class="pos-rel">
+																				<input type="checkbox" class="ace" />
+																				<span class="lbl"></span>
+																			</label>
+																		</td>
+																		<td>
+																			<a href="{% url 'school-details' school.id %}">{{ school.name }}</a>
+																		</td>
+																		<td>{{ school.motto }}</td>
+																		<td>{{ school.reg_no }}</td>
+																		<td>{{ school.yr_est }}</td>
+																		<td>{{ school.yr_reg }}</td>
+																		<td>{{ school.district }} {{ school.region }} Ug.</td>
+												</tr>
+
+												{% endfor %} 
+												
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+{% endblock content %}

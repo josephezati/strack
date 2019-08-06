@@ -1,0 +1,87 @@
+{% extends "school_home/base_resource.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+	<div class="col-xs-12">
+	<div class="clearfix">
+
+	<div class="pull-left">
+		<h4>Resources
+	<small>
+	<i class="ace-icon fa fa-angle-double-right"></i>
+	Registered Resources
+	</small>
+	</h4>
+	</div>
+	<div class="pull-right tableTools-container"></div>
+		</div>
+		<div class="table-header" >
+			Results for "Latest Registered Resources"
+		</div>
+
+		<!-- div.table-responsive -->
+
+		<!-- div.dataTables_borderWrap -->
+		<div>
+			<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+					
+					<th class="center">
+							<label class="pos-rel">
+								<input type="checkbox" class="ace" />
+								<span class="lbl"></span>
+							</label>
+						</th>
+					
+						<th>Desc.</th>
+						<th class="hidden-480">Type</th>
+						<th>
+						Source
+						</th>
+						<th>
+						Quantity
+						</th>														
+						<th>
+						Amount
+						</th>
+						<th>
+						<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+						Year
+						</th>													
+					</tr>
+				</thead>
+
+				<tbody>
+						
+
+						{% for resource in resources %}    
+						<tr>
+						
+										<td class="center">
+											<label class="pos-rel">
+												<input type="checkbox" class="ace" />
+												<span class="lbl"></span>
+											</label>
+										</td>
+										<td>
+											<a href="{% url 'resource-detail' resource.id %}">{{ resource.description }}</a>
+										</td>
+										<td>{{ resource.resource_type }}</td>
+
+										<td>{{ resource.source }}</td>
+										<td>{{ resource.quantity }}</td>
+										<td>{{ resource.amount }}</td>
+										<td>{{ resource.year|date:"N d, Y" }}</td>
+										
+				</tr>
+
+				{% endfor %} 
+				
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

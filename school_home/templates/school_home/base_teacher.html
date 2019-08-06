@@ -1,0 +1,76 @@
+{% extends "school_home/base.html" %}
+				{% block side-bar %}		
+				<ul class="nav nav-list">
+					<li class="">
+						<a href="{% url 'strack-teachers' %}">
+							<i class="menu-icon fa fa-home"></i>
+							<span class="menu-text"> Teachers </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					<li class="">
+						<a href="{% url 'new-teacher' %}">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text"> Register Teachers </span>
+						</a>
+					</li>
+					<li class="">
+						<a href="{% url 'view-teachers' %}">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text"> View Teachers </span>
+						</a>
+					</li>
+
+					<li class="">
+						<a href="{% url 'transfer-teacher' %}">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text"> Transfer Teachers </span>
+						</a>
+					</li>
+					<li class="">
+						<a href="{% url 'view-teacher-transfers' %}">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text"> View Transfers </span>
+						</a>
+					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-gear"></i>
+							<span class="menu-text">
+								Teacher Settings
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="{% url 'gender' %}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Gender
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="{% url 'teacher-status' %}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Status
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="{% url 'designation' %}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Designation
+								</a>
+								<b class="arrow"></b>
+							</li>							
+						</ul>
+					</li>
+				</ul><!-- /.nav-list -->
+				{% endblock side-bar %}

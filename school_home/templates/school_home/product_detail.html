@@ -1,0 +1,64 @@
+{% extends "school_home/base_market.html" %}
+{% load static %}
+{% block content-header %}
+<div class="page-header">
+   <h1>Products
+		<small>
+			<i class="ace-icon fa fa-angle-double-right"></i>
+					Product Details
+			</small>
+
+			<small>
+			<i class="ace-icon fa fa-angle-double-right"></i>
+					{{ object.title }}
+			</small>
+
+
+			</h1>
+</div><!-- /.page-header -->
+{% endblock content-header %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-xs-6">
+	<div class="media search-media">
+		<div class="media-left">
+			<a href="#">
+				<img class="media-object" src="{% static 'assets/images/avatars/school.png' %}" />
+			</a>
+		</div>
+
+		<div class="media-body">
+			<div>
+				<h4 class="media-heading">
+					<a href="{% url 'update-product' object.id %}" class="blue">{{ object.title }}</a>
+				</h4>
+			</div>
+			<p>{{ object.description }}</p>
+			<div>
+				<h4 class="media-heading">
+				Call:	{{ object.phone_contact }}
+				</h4>
+			</div>
+			<div class="search-actions text-center">
+				<span class="blue bolder bigger-125">{{ object.price }}</span> Ugx
+				<div class="action-buttons bigger-125">
+					<a href="#">
+						<i class="ace-icon fa fa-envelope green"></i>
+					</a>
+
+					<a href="#">
+						<i class="ace-icon fa fa-heart red"></i>
+					</a>
+
+					<a href="#">
+						<i class="ace-icon fa fa-star orange2"></i>
+					</a>
+				</div>
+				<a class="search-btn-action btn btn-sm btn-block btn-info">{{ object.status }}</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

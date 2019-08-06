@@ -1,0 +1,80 @@
+{% extends "school_home/base_deo.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+	<div class="col-xs-12">
+	<div class="clearfix">
+	<div class="pull-left">
+		<h4>DEOs
+	<small>
+	<i class="ace-icon fa fa-angle-double-right"></i>
+	Registered DEOs
+	</small>
+	</h4>
+	</div>
+	<div class="pull-right tableTools-container"></div>
+		</div>
+		<div class="table-header">
+			Results for "Latest Registered DEOs"
+		</div>
+
+		<!-- div.table-responsive -->
+
+		<!-- div.dataTables_borderWrap -->
+		<div>
+			<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+					
+					<th class="center">
+							<label class="pos-rel">
+								<input type="checkbox" class="ace" />
+								<span class="lbl"></span>
+							</label>
+						</th>
+					
+						<th class="hidden-480">Name</th>
+						<th class="hidden-480">Gender</th>
+						<th>
+						<i class="ace-icon fa fa-map-marker light-orange bigger-110"></i>
+						Origin
+						</th>														
+						<th>
+						<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+						Recorded On
+						</th>
+						<th>
+						</th>													
+					</tr>
+				</thead>
+
+				<tbody>
+						
+
+						{% for deo in deos %}    
+						<tr>
+						
+							<td class="center">
+							<label class="pos-rel">
+							<input type="checkbox" class="ace" />
+							<span class="lbl"></span>
+							</label>
+							</td>
+							<td>
+							<a href="{% url 'deo-details' deo.id %}">{{ deo.name }}</a>
+							</td>
+							<td>{{ deo.gender }}</td>
+							<td>{{ deo.district }} {{ deo.region }} Uganda</td>
+							<td>{{ deo.date_created|date:"N d, Y" }}</td>
+							<td></td>			
+						</tr>
+
+				{% endfor %} 
+				
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% extends "school_home/base.html" %}
+				{% block side-bar %}		
+				<ul class="nav nav-list">
+					<li class="">
+						<a href="{% url 'strack-resources' %}">
+							<i class="menu-icon fa fa-home"></i>
+							<span class="menu-text"> Resources </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					<li class="">
+						<a href="{% url 'resource' %}">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text"> Add Resources </span>
+						</a>
+					</li>
+					<li class="">
+						<a href="{% url 'view-resources' %}">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text"> View Resources </span>
+						</a>
+					</li>
+
+					<li class="">
+						<a href="{% url 'allocate-resource' %}">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text"> Allocate Resources </span>
+						</a>
+					</li>
+					<li class="">
+						<a href="{% url 'allocated-resources' %}">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text"> Allocated Resources </span>
+						</a>
+					</li>
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-gear"></i>
+							<span class="menu-text">
+								Resource Settings
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="{% url 'resource-type' %}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Types
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="{% url 'resource-source' %}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Sources
+								</a>
+								<b class="arrow"></b>
+							</li>							
+						</ul>
+					</li>
+				</ul><!-- /.nav-list -->
+				{% endblock side-bar %}

@@ -1,0 +1,214 @@
+{% extends "school_home/base_school.html" %}
+{% load static %}
+{% block content-header %}
+<div class="page-header">
+   <h1>Schools
+		<small>
+			<i class="ace-icon fa fa-angle-double-right"></i>
+					School Details
+			</small>
+
+			<small>
+			<i class="ace-icon fa fa-angle-double-right"></i>
+					{{ object.name }}
+			</small>
+
+
+			</h1>
+</div><!-- /.page-header -->
+{% endblock content-header %}
+
+				{% block content %}
+
+							<div class="row">
+									<div class="col-xs-12">
+									
+									<table style="width:100%">
+									
+									<tr>
+													<td colspan="12">
+														<div class="table-detail">
+															<div class="row">
+																<div class="col-xs-12 col-sm-2">
+																	<div class="text-center">
+																	<img src="{{ object.logo.url }}" alt="Upload new logo" />
+																		<br />
+																		<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+																			<div class="inline position-relative">
+																				<a class="user-title-label" href="#">
+																					&nbsp;
+																					<span class="white">{{ object.name }}</span>
+																				</a>
+																			</div>
+																		</div>
+																		<div class="width-80">
+																		<a href="{% url 'update-school' object.id %}">
+																		<button class="btn pull-left btn-sm mb-0 btn-primary btn-white btn-round" type="button">
+																				Update School Infor. 
+																				<i class="ace-icon fa fa-edit"></i>
+																			</button>
+																		</a>
+																		</div>
+																	</div>
+
+																</div>
+
+																<div class="col-xs-12 col-sm-4">
+																	<div class="space visible-xs"></div>
+
+																	<div class="profile-user-info profile-user-info-striped">
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> School Motto</div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.motto }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Location </div>
+
+																			<div class="profile-info-value">
+																				<i class="fa fa-map-marker light-orange bigger-110"></i>
+																				<span>{{ object.district }}, {{ object.region }} Uganda</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Year Estab.</div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.yr_est }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Reg. No. </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.reg_no }}</span>
+																			</div>
+																		</div>
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Year Reg. </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.yr_reg }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Center No. </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.cen_no }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> C.No.Status </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.cennostatus }}</span>
+																			</div>
+																		</div>
+
+																	</div>
+																</div>
+																
+																<div class="col-xs-12 col-sm-4">
+																	<div class="space visible-xs"></div>
+
+																	<div class="profile-user-info profile-user-info-striped">
+																	<div class="profile-info-row">
+																			<div class="profile-info-name"> School Type </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.schtype }}</span>
+																			</div>
+																		</div>
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Category </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.category }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Section </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.section }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Ownership </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.ownership }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Access </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.access }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Level  </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.level }}</span>
+																			</div>
+																		</div>
+
+																		<div class="profile-info-row">
+																			<div class="profile-info-name"> Status </div>
+
+																			<div class="profile-info-value">
+																				<span>{{ object.regstatus }}</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="col-xs-12 col-sm-2">
+																	<div class="space visible-xs"></div>
+																	<h4 class="header blue lighter less-margin">Send message to Headmaster</h4>
+
+																	<div class="space-6"></div>
+
+																	<form>
+																		<fieldset>
+																			<textarea class="width-100" resize="none" placeholder="Type something…"></textarea>
+																		</fieldset>
+
+																		<div class="hr hr-dotted"></div>
+
+																		<div class="clearfix">
+																			<label class="pull-left">
+																				<input type="checkbox" class="ace" />
+																				<span class="lbl"> Email me a copy</span>
+																			</label>
+
+																			<button class="pull-right btn btn-sm btn-primary btn-white btn-round" type="button">
+																				Submit
+																				<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+																			</button>
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+									</table>
+									</div>
+								</div>
+
+{% endblock content %}

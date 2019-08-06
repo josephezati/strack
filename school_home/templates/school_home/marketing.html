@@ -1,0 +1,121 @@
+{% extends "school_home/base_market.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+<div class="col-xs-12">
+<div>
+<div class="col-md-6">
+<h4>Latest Products</h4>
+<div class="hr dotted"></div>
+{% for product in products %}
+<div class="row">
+	<div class="media search-media">
+		<div class="media-left">
+			<a href="{% url 'product-detail' product.id %}">
+				<img class="media-object" src="{% static 'assets/images/avatars/school.png' %}" />
+			</a>
+		</div>
+
+		<div class="media-body">
+			<div>
+				<h4 class="media-heading">
+					<a href="{% url 'product-detail' product.id %}" class="blue">{{ product.title }}</a>
+				</h4>
+			</div>
+			<p>{{ product.description }}</p>
+			<div>
+				<h4 class="media-heading">
+				Call:	{{ product.phone_contact }}
+				</h4>
+			</div>
+			<div class="search-actions text-center">
+				<span class="blue bolder bigger-125">{{ product.price }}</span> Ugx
+				<div class="action-buttons bigger-125">
+					<a href="#">
+						<i class="ace-icon fa fa-envelope green"></i>
+					</a>
+
+					<a href="#">
+						<i class="ace-icon fa fa-heart red"></i>
+					</a>
+
+					<a href="#">
+						<i class="ace-icon fa fa-star orange2"></i>
+					</a>
+				</div>
+				<a href="{% url 'product-detail' product.id %}" class="search-btn-action btn btn-sm btn-block btn-info">{{ product.status }}</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endfor %}
+	<div class="pagination">
+    <span class="step-links">
+        {% if products.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">&laquo; first</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ products.previous_page_number }}">previous</a>
+        {% endif %}
+        <span class="current">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}.
+        </span>
+        {% if products.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?page={{ products.next_page_number }}">next</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+	</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="col-xs-12">
+<h4>Most Popular Products</h4>
+<div class="hr dotted"></div>
+{% for product in products_sold %}
+<div class="row">
+	<div class="media search-media disabled">
+		<div class="media-left">
+			<a href="{% url 'product-detail' product.id %}">
+				<img class="media-object" src="{% static 'assets/images/avatars/school.png' %}" />
+			</a>
+		</div>
+
+		<div class="media-body">
+			<div>
+				<h4 class="media-heading">
+					<a href="{% url 'product-detail' product.id %}" class="blue">{{ product.title }}</a>
+				</h4>
+			</div>
+			<p>{{ product.description }}</p>
+			<div>
+				<h4 class="media-heading">
+				Call:	{{ product.phone_contact }}
+				</h4>
+			</div>
+			<div class="search-actions text-center">
+				<span class="blue bolder bigger-125">{{ product.price }}</span> Ugx
+				<div class="action-buttons bigger-125">
+					<a href="#">
+						<i class="ace-icon fa fa-envelope green"></i>
+					</a>
+
+					<a href="#">
+						<i class="ace-icon fa fa-heart red"></i>
+					</a>
+
+					<a href="#">
+						<i class="ace-icon fa fa-star orange2"></i>
+					</a>
+				</div>
+				<a href="{% url 'product-detail' product.id %}" class="search-btn-action btn btn-sm btn-block btn-grey  disabled">{{ product.status }}</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}
